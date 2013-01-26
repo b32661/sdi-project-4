@@ -16,6 +16,14 @@
 // string phone number function
 function isPhoneNumber (string){
     var phNum = string;
+    var firstEnd = phNum.indexOf("-");
+    var secondEnd = phNum.lastIndexOf("-");
+    var restart = phNum.indexOf("-")+1;
+    var secondRestart = phNum.lastIndexOf("-")+1;
+    var veryEnd = phNum.length;
+    var firstThree =  phNum.substring( 0, firstEnd );
+    var secondThree =  phNum.substring(restart,secondEnd );
+    var lastFour = phNum.substring(secondRestart,veryEnd);
 
 }
 
