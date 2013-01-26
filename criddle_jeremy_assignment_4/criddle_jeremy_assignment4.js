@@ -20,9 +20,9 @@ function isPhoneNumber (string){
 }
 
 // string email address function
-    function isEmail (string){
-        var email = string;
-    }
+function isEmail (string){
+    var email = string;
+}
 
 // string url function
 function isURL (string){
@@ -48,15 +48,26 @@ function makeMoney (number){
 function fuzMatch (number)
 
 // date difference function
-
+function dateDif (date){
+    var myDate = date;
+}
 
 // string to actual number function
-
+function strToNum (string){
+    var toNum = string;
+}
 
 // smallest value greater that a given number function
-
+function grThan (number){
+    var myNumber = number
+}
 
 // total value of just numbers in an array function
-
+function valNumInArray (array){
+    var myArray = array;
+}
 
 // sorted array function
+function sortArray (array){
+    var myArray = array;
+}
