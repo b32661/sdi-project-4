@@ -1,4 +1,3 @@
-//  String	Number	Array
 //  Does a string follow a 123-456-7890 pattern like a phone number?
 //  Does a string follow an aaa@bbb.ccc pattern like an email address?
 //  Is the string a URL? (Does it start with http: or https:?)
@@ -41,6 +40,7 @@ function isPhoneNumber (string){
 // string email address function
 function isEmail (string){
     var email = string;
+    var myEmail;
     var firstThree = email.substring(0,3);
     var lastThree = email.substring(email.length-3, email.length);
     var dot = email.charAt(email.length - 4);
@@ -50,22 +50,35 @@ function isEmail (string){
     var lastDot = email.lastIndexOf(".");
 
     if( dot != "." || firstAt == -1 ||
-        firstAt != secondAt ||
-        firstDot != lastDot){
-        var email = false;
+        firstDot != lastDot || firstAt != secondAt
+        //email.charAt(email.length) != NaN ||
+        //email.charAt(email.length-1) != NaN ||
+        //email.charAt(email.length-2) != NaN ||
+       // email.charAt(0) != NaN ||
+        //email.charAt(0) != NaN ||
+        ){
+        var myEmail = false;
 
     } else {
-        email = true;
+        myEmail = true;
 }
 
-    return {first :firstThree,
-        last: lastThree, email: email};
+    return {isEmail :myEmail, email: email};
 }
 
 // string url function
 function isURL (string){
     var url = string;
-    return url;
+    var firstFive = url.substring(0,5);
+    var firstSix = url.substring(0,6);
+    var isUrl;
+
+    if (firstFive == "http:" || firstSix == "https:"){
+        isUrl = true ;
+    } else {
+        isUrl = false;
+    }
+    return {string: url ,first: firstFive, second: firstSix, possibleURL: isUrl}
 }
 
 // title case a string function
@@ -114,4 +127,6 @@ function sortArray (array){
 
 var well = isEmail("jermcriddle@gmail.com");
 console.log(well);
+var net = isURL("http:jarees");
+console.log(net);
 
