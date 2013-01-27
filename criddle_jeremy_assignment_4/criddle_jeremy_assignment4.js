@@ -17,7 +17,7 @@
 function isPhoneNumber (string){
     var phNum = string;
     var pLength = phNum.length;
-    var pFirst = phNum.substring(0,1);
+    var pFirst = phNum.charAt(0);
     var pFirstThree = phNum.substring(0,2);
     var pSecondThree = phNum.substring((4,6));
     var pLastFour = phNum.substring(8,11);
@@ -25,12 +25,14 @@ function isPhoneNumber (string){
     var pLastDash = phNum.charAt(7);
     var dashes = pFirstDash + pLastDash;
 
-    if (pLength != 12 || pFirst == 0 ||
+    if (pLength != 12 || pFirst === 0 ||
         pFirstThree === NaN || pSecondThree === NaN ||
         pLastFour === NaN || dashes != "--"){
         phNum = false;
+        console.log("This is not a phone number.");
     } else {
         phNum = true;
+        console.log(" This is possibly a phone number.");
     }
 
     return phNum;
@@ -92,4 +94,4 @@ function sortArray (array){
     var myArray = array;
 }
 
-var well = isPhoneNumber(808-888-8888);
+var well = isPhoneNumber("808-888-8888");
