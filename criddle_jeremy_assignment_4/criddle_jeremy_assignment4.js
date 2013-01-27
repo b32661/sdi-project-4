@@ -41,7 +41,25 @@ function isPhoneNumber (string){
 // string email address function
 function isEmail (string){
     var email = string;
-    return email;
+    var firstThree = email.substring(0,3);
+    var lastThree = email.substring(email.length-3, email.length);
+    var dot = email.charAt(email.length - 4);
+    var firstAt = email.indexOf("@");
+    var secondAt = email.lastIndexOf("@");
+    var firstDot = email.indexOf(".");
+    var lastDot = email.lastIndexOf(".");
+
+    if( dot != "." || firstAt == -1 ||
+        firstAt != secondAt ||
+        firstDot != lastDot){
+        var email = false;
+
+    } else {
+        email = true;
+}
+
+    return {first :firstThree,
+        last: lastThree, email: email};
 }
 
 // string url function
@@ -94,4 +112,6 @@ function sortArray (array){
     var myArray = array;
 }
 
-var well = isPhoneNumber("808-888-8888");
+var well = isEmail("jermcriddle@gmail.com");
+console.log(well);
+
