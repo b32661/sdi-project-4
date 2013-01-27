@@ -16,30 +16,42 @@
 // string phone number function
 function isPhoneNumber (string){
     var phNum = string;
-    var firstEnd = phNum.indexOf("-");
-    var secondEnd = phNum.lastIndexOf("-");
-    var restart = phNum.indexOf("-")+1;
-    var secondRestart = phNum.lastIndexOf("-")+1;
-    var veryEnd = phNum.length;
-    var firstThree =  phNum.substring( 0, firstEnd );
-    var secondThree =  phNum.substring(restart,secondEnd );
-    var lastFour = phNum.substring(secondRestart,veryEnd);
+    var pLength = phNum.length;
+    var pFirst = phNum.substring(0,1);
+    var pFirstThree = phNum.substring(0,2);
+    var pSecondThree = phNum.substring((4,6));
+    var pLastFour = phNum.substring(8,11);
+    var pFirstDash = phNum.charAt(3);
+    var pLastDash = phNum.charAt(7);
+    var dashes = pFirstDash + pLastDash;
 
+    if (pLength != 12 || pFirst == 0 ||
+        pFirstThree === NaN || pSecondThree === NaN ||
+        pLastFour === NaN || dashes != "--"){
+        phNum = false;
+    } else {
+        phNum = true;
+    }
+
+    return phNum;
 }
 
 // string email address function
 function isEmail (string){
     var email = string;
+    return email;
 }
 
 // string url function
 function isURL (string){
     var url = string;
+    return url;
 }
 
 // title case a string function
 function makeCap (string){
     var str = string;
+    return str;
 }
 
 // replace separator function
@@ -79,3 +91,5 @@ function valNumInArray (array){
 function sortArray (array){
     var myArray = array;
 }
+
+var well = isPhoneNumber(808-888-8888);
