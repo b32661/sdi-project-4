@@ -87,8 +87,9 @@ function makeCap (string){
 
 
 //  Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
-function replaceSep (string){
-    var str = string;
+function replaceSep (string, firstSeparator, secondSeparator){
+    var list = string;
+    //alert(String.replace(num, /5/, '2'));
 }
 
 
