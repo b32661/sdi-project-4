@@ -23,6 +23,7 @@ function isPhoneNumber (string){
     return phNum;
 }
 
+
 //  Does a string follow an aaa@bbb.ccc pattern like an email address?
 function isEmail (string){
     var email = string;
@@ -59,6 +60,7 @@ function isEmail (string){
     return myEmail
 }
 
+
 //  Is the string a URL? (Does it start with http: or https:?)
 function isURL (string){
     var url = string;
@@ -76,28 +78,35 @@ function isURL (string){
     return isUrl;
 }
 
+
 //  Title-case a string (split into words, then uppercase the first letter of each word)
 function makeCap (string){
     var str = string;
     return str;
 }
 
+
 //  Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 function replaceSep (string){
     var str = string;
 }
 
+
 //  Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
 function makeMoney (number){
-    var num = number;
+    var num = number.toFixed(2);
+    return num;
 }
+
 
 //  Fuzzy-match a number: is the number above or below a number within a certain percent?
 function fuzMatch (number){
 
 }
 
+
 //  Find the number of hours or days difference between two dates.
+//******not working******
 function dateDif (date1, date2){
     var firstDate = new Date(date1);
     var secondDate = new Date(date2);
@@ -107,17 +116,21 @@ function dateDif (date1, date2){
     return {dif: dif, firstDate: firstDate, secondDate:secondDate}
 }
 
+
 //  Given a string version of a number such as "42", return the value as an actual Number, such as 42.
 function strToNum (string){
-    var str = string;
-    var strToNum = str - 0
-    return strToNum ;
+    var str = string - 0;
+    return str ;
 
 }
 
 //  Find the smallest value in an array that is greater than a given number
 function grThan (number){
-    var myNumber = number
+    var myNumber = number;
+    var sortedNum = myNumber.sort(a,b);
+
+
+    return sortedNum;
 }
 
 //  Find the total value of just the numbers in an array, even if some of the items are not numbers.
@@ -130,7 +143,3 @@ function valNumInArray (array){
 function sortArray (array){
     var myArray = array;
 }
-
-var s = strToNum("42");
-console.log(s);
-
