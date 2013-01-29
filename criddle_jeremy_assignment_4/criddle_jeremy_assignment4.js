@@ -68,10 +68,12 @@ function isURL (string){
 
     if (firstFive == "http:" || firstSix == "https:"){
         isUrl = true ;
+        console.log("This is probably a url.");
     } else {
         isUrl = false;
+        console.log("I doubt this is a url.");
     }
-    return {string: url ,first: firstFive, second: firstSix, possibleURL: isUrl}
+    return isUrl;
 }
 
 //  Title-case a string (split into words, then uppercase the first letter of each word)
@@ -127,4 +129,6 @@ function sortArray (array){
 
 var well = isEmail("jermcriddle@gmail.net");
 console.log(well);
+var todo = isURL("http:www.gmail.com");
+console.log(todo);
 
