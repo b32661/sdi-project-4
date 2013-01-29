@@ -98,16 +98,20 @@ function fuzMatch (number){
 }
 
 //  Find the number of hours or days difference between two dates.
-function dateDif (date){
-    var userDate = date;
-    var now =  new Date();
-    result = userDate - now;
-    return result;
+function dateDif (date1, date2){
+    var firstDate = new Date(date1);
+    var secondDate = new Date(date2);
+    var firstTime = firstDate.getTime();
+    var secondTime = secondDate.getTime();
+    var dif = firstTime - secondTime;
+    return {dif: dif, firstDate: firstDate, secondDate:secondDate}
 }
 
 //  Given a string version of a number such as "42", return the value as an actual Number, such as 42.
 function strToNum (string){
-    var number = string;
+    var str = string;
+    var strToNum = str - 0
+    return strToNum ;
 
 }
 
@@ -127,8 +131,6 @@ function sortArray (array){
     var myArray = array;
 }
 
-var well = isEmail("jermcriddle@gmail.net");
-console.log(well);
-var todo = isURL("http:www.gmail.com");
-console.log(todo);
+var s = strToNum("42");
+console.log(s);
 
