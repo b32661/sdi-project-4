@@ -78,10 +78,8 @@ function isURL (string){
 
     if (firstFive == "http:" || firstSix == "https:"){
         isUrl = true ;
-        console.log("This is probably a url.");
     } else {
         isUrl = false;
-        console.log("I doubt this is a url.");
     }
     return isUrl;
 }
