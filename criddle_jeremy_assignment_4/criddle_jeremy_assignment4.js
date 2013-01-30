@@ -1,3 +1,11 @@
+//Jeremy Criddle
+//SDI 1301
+//Project 4
+//Function Library
+
+var myLibrary = function(){
+
+
 //  Does a string follow a 123-456-7890 pattern like a phone number?
 function isPhoneNumber (string){
     var phNum = string;
@@ -144,3 +152,20 @@ function valNumInArray (array){
 function sortArray (array){
     var myArray = array;
 }
+    return{
+        //checkstring:checkstring;
+        phNum: phNum,
+        myEmail: myEmail,
+        isUrl: isUrl,
+        num: num,
+        str: str1
+
+    }
+
+}
+var newLib = new myLibrary();
+//var checkString = function(val{
+//for(var i=0; 1<= strLen; i++{
+//if(val.substring(i, i+1) === "-"){
+//return i;
+//console.log("the dash is in position " + newLib.checkString(123-456);
