@@ -7,7 +7,7 @@ var JerLib = function(){
 
 
 //  Does a string follow a 123-456-7890 pattern like a phone number?
-    function isPhoneNumber (string){
+    var isPhoneNumber = function (string){
         var phNum = string;
         var pLength = phNum.length;
         var pFirst = phNum.charAt(0);
@@ -31,7 +31,7 @@ var JerLib = function(){
 
 
 //  Does a string follow an aaa@bbb.ccc pattern like an email address?
-     function isEmail (string){
+     var isEmail = function (string){
         var email = string;
         var myEmail;
         var lastThree = email.substring(email.length-3, email.length);
@@ -66,7 +66,7 @@ var JerLib = function(){
 
 
 //  Is the string a URL? (Does it start with http: or https:?)
-    function isURL (string){
+    var isUrL = function (string){
         var url = string;
         var firstFive = url.substring(0,5);
         var firstSix = url.substring(0,6);
@@ -74,31 +74,42 @@ var JerLib = function(){
 
         if (firstFive == "http:" || firstSix == "https:"){
           isUrl = true ;
+            return isUrl;
         } else {
             isUrl = false;
+            return isUrl;
      }
         ;
     }
 
 
 //  Title-case a string (split into words, then uppercase the first letter of each word)
-//    function makeCap (string){
-//       var str = string;
-//        return str;
+    var makeCap = function (string){
+    var split = str.split(" ");
+    var result = "";
+    var cased;
+    for (var i = 0, j = split.length; i < j; i++) {
+        var spNew = split[i].replace(split[i].charAt(0),(split[i].charAt(0)).toUpperCase());
+        cased = result.concat(spNew + " ");
+    };
+    return cased;
+};
 //    }
 
 
 //  Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
-//    function replaceSep (string, firstSeparator, secondSeparator){
-//        var list = string;
+    var replaceSep = function (string, separator) {
+        var re = /\W/g;
+        var replaced = str.replace(re, newSep);
+        return replaced;
 //    }
 
 
 //  Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
-    function makeMoney (number){
-        var num = number.toFixed(2);
-        return num;
-}
+        var makeMoney = function (number) {
+            var num = number.toFixed(2);
+            return num;
+        }
 
 
 //  Fuzzy-match a number: is the number above or below a number within a certain percent?
@@ -108,22 +119,22 @@ var JerLib = function(){
 
 //  Find the number of hours or days difference between two dates.
 //******not working******
-    function dateDif (date1,date2){
-        var firstDate = new Date(this.date1);
-        var secondDate = new Date(this.date2);
-        var oneHour = 1000*60*60;
-        var oneDay = oneHour*24;
-        var dif = firstDate.getTime() - secondDate.getTime();
-        var difHours = dif/ oneHour;
-        return difHours;
-    }
+        var dateDif = function (date1, date2) {
+            var firstDate = new Date(this.date1);
+            var secondDate = new Date(this.date2);
+            var oneHour = 1000 * 60 * 60;
+            var oneDay = oneHour * 24;
+            var dif = firstDate.getTime() - secondDate.getTime();
+            var difHours = dif / oneHour;
+            return difHours;
+        }
 
 
 //  Given a string version of a number such as "42", return the value as an actual Number, such as 42.
-    function strToNum (string){
-     var str = string - 0;
-        return str ;
-    }
+        var strToNum = function (string) {
+            var str = string - 0;
+            return str;
+        }
 
 //  Find the smallest value in an array that is greater than a given number
 //    function grThan (number){
@@ -139,21 +150,19 @@ var JerLib = function(){
 
 
 //  Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] → [{a:1},{a:2},{a:3}].
- //   function sortArray (array){
-  //      var myArray = array;
+        //   function sortArray (array){
+        //      var myArray = array;
 //    }
 
 
-return {differenceInHours: difHours};
-};
-
-
-
-var firs = JerLib().dateDif("1995, 11, 25", "2000, 11, 25");
-console.log(firs);
-//var newLib = new myLibrary();
-//var checkString = function(val{
-//for(var i=0; 1<= strLen; i++{
-//if(val.substring(i, i+1) === "-"){
-//return i;
-//console.log("the dash is in position " + newLib.checkString(123-456);
+        return {"phNum": phNum,
+            "isAnEmail": myEmail,
+            "isaURL": isUrl,
+            "titleCased": cased,
+            "replaced": replaced,
+            "num": num,
+            "str": str,
+            "difHours": difHours
+        };
+    };
+}
