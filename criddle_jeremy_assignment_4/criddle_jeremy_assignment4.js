@@ -3,7 +3,7 @@
 //Project 4
 //Function Library
 
-var JermLib = function(){
+var JerLib = function(){
 
 
 //  Does a string follow a 123-456-7890 pattern like a phone number?
@@ -77,7 +77,7 @@ var JermLib = function(){
         } else {
             isUrl = false;
      }
-        return isUrl;
+        ;
     }
 
 
@@ -149,7 +149,7 @@ return {differenceInHours: difHours};
 
 
 
-var firs = JermLib().dateDif("1995, 11, 25", "2000, 11, 25");
+var firs = JerLib().dateDif("1995, 11, 25", "2000, 11, 25");
 console.log(firs);
 //var newLib = new myLibrary();
 //var checkString = function(val{
