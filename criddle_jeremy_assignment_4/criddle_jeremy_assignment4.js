@@ -6,7 +6,7 @@
 var JerLib = function(){
 
 
-//  Does a string follow a 123-456-7890 pattern like a phone number?
+//  Does a string follow a 123-456-7890 pattern like a phone number? returns true or false.
     var isPhoneNumber = function (string){
         var phNum = string;
         var pLength = phNum.length;
@@ -30,7 +30,7 @@ var JerLib = function(){
     }
 
 
-//  Does a string follow an aaa@bbb.ccc pattern like an email address?
+//  Does a string follow an aaa@bbb.ccc pattern like an email address? returns true or false
      var isEmail = function (string){
         var email = string;
         var myEmail;
@@ -65,7 +65,7 @@ var JerLib = function(){
 }
 
 
-//  Is the string a URL? (Does it start with http: or https:?)
+//  Is the string a URL? (Does it start with http: or https:?) returns true or false
     var isUrL = function (string){
         var url = string;
         var firstFive = url.substring(0,5);
@@ -170,7 +170,7 @@ var JerLib = function(){
             "str": str,
             "dif": dif,
             "isFuzzyNum": isFuzzyNum,
-            
+
         };
     };
 }
