@@ -88,7 +88,7 @@ var JerLib = function(){
     var split = str.split(" ");
     var result = "";
     var cased;
-    for (var i = 0, j = split.length; i < j; i++) {
+    for (var i = 0, w = split.length; i < w; i++) {
         var spNew = split[i].replace(split[i].charAt(0),(split[i].charAt(0)).toUpperCase());
         cased = result.concat(spNew + " ");
     };
@@ -113,20 +113,26 @@ var JerLib = function(){
 
 
 //  Fuzzy-match a number: is the number above or below a number within a certain percent?
-//    function fuzMatch (number){
-//  }
+        var fuzzyNum = function (number,comparedNumber,percent) {
+            var approx = (number/comparedNumber) * 100;
+            var isFuzzyNum;
+            if ((number >= comparedNumber && approx >= percent) || (number < comparedNumber && approx < percent)) {
+                isFuzzyNum = false;
+                return isFuzzyNum;
+            } else {
+                isFuzzyNum = true
+                return isFuzzyNum;
+            };
+        };
 
 
-//  Find the number of hours or days difference between two dates.
-//******not working******
-        var dateDif = function (date1, date2) {
-            var firstDate = new Date(this.date1);
-            var secondDate = new Date(this.date2);
-            var oneHour = 1000 * 60 * 60;
-            var oneDay = oneHour * 24;
-            var dif = firstDate.getTime() - secondDate.getTime();
-            var difHours = dif / oneHour;
-            return difHours;
+// Input two dates using new Date(yyyy,mm,dd)
+// Output format is hours
+        var difInHours = function (date1,date2) {
+        var dif ;
+        var difference = (date1 > date2) ? date1.getTime() - date2.getTime() : date2.getTime() - date1.getTime();
+        dif = difference / 1000 * 60 * 60;
+        return dif;
         }
 
 
@@ -162,7 +168,9 @@ var JerLib = function(){
             "replaced": replaced,
             "num": num,
             "str": str,
-            "difHours": difHours
+            "dif": dif,
+            "isFuzzyNum": isFuzzyNum,
+            
         };
     };
 }
