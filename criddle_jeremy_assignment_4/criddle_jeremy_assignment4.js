@@ -31,15 +31,15 @@ var JermLib = function(){
 
 
 //  Does a string follow an aaa@bbb.ccc pattern like an email address?
-    function isEmail (string){
+     function isEmail (string){
         var email = string;
         var myEmail;
         var lastThree = email.substring(email.length-3, email.length);
         var dot = email.charAt(email.length - 4);
         var firstAt = email.indexOf("@");
-     var secondAt = email.lastIndexOf("@");
-     var firstDot = email.indexOf(".");
-     var lastDot = email.lastIndexOf(".");
+        var secondAt = email.lastIndexOf("@");
+        var firstDot = email.indexOf(".");
+        var lastDot = email.lastIndexOf(".");
 
      if( dot === "." && firstAt != -1 &&
          firstDot === lastDot &&
@@ -48,19 +48,20 @@ var JermLib = function(){
              if(lastThree === "com" ||
                     lastThree ==="net" ||
                     lastThree === "org"){
+                 myEmail= true;
 
              } else{
                     myEmail = false;
-                    return myEmail
-            }
+                    return myEmail;
+             }
 
-        var myEmail = true;
+      myEmail = true;
 
-    } else {
+     } else {
         myEmail = false;
 }
 
-    return myEmail
+     return myEmail;
 }
 
 
