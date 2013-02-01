@@ -62,9 +62,8 @@ var jerLib = function() {
 
 //  Is the string a URL? (Does it start with http: or https:?) returns true or false
     var isUrL = function (string) {
-        var url = string;
-        var firstFive = url.substring(0, 5);
-        var firstSix = url.substring(0, 6);
+        var firstFive = string.substring(0, 5);
+        var firstSix = string.substring(0, 6);
         if (firstFive == "http:" || firstSix == "https:") {
             return true;
         } else {
@@ -144,16 +143,24 @@ var jerLib = function() {
                     array.sort(function(a,b){return a-b;});
                     var result = array[array.lastIndexOf(num) + 1];
                     return result;
-            } else {
-                return null;
+                } else {
+                    return null;
     };
 };
 
 
 //  Find the total value of just the numbers in an array, even if some of the items are not numbers.
-//    function valNumInArray (array){
-//        var myArray = array;
-//    }
+        var totalInArray = function (array) {
+            var total = 0;
+            for (var i = 0, j = array.length; i < j; i++) {
+                if (array[i]/1 === array[i]) {
+                    total += array[i];
+                };
+            };
+            return total;
+        };
+
+
 
 
 //  Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] → [{a:1},{a:2},{a:3}].
@@ -174,7 +181,8 @@ var jerLib = function() {
             "strToNum": strToNum,
             "fuzzyNum":fuzzyNum,
             "sortArray":sortArray,
-            "grThan":grThan
+            "grThan":grThan,
+            "totalInArray": totalInArray
 
         }     };
 
