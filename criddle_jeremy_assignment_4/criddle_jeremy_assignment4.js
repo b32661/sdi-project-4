@@ -135,18 +135,20 @@ var jerLib = function() {
         }
 
 //  Find the smallest value in an array that is greater than a given number
-        var grThan = function (array,num) {
-            array.sort(function(a,b){return a-b;});
-            if (num >= array[0] && num < array[array.length-1]) {
-                array.push(num);
-                array.sort(function(a,b){return a-b;});
-        var result = array[array.lastIndexOf(num) + 1];
-            return result;
-        } else {
-            return null;
+        var grThan = function (array, num) {
+            array.sort(function(a,b)
+                {return a-b;});
+            if (num >= array[0] &&
+                num < array[array.length-1]) {
+                    array.push(num);
+                    array.sort(function(a,b){return a-b;});
+                    var result = array[array.lastIndexOf(num) + 1];
+                    return result;
+            } else {
+                return null;
     };
 };
-//    }
+
 
 //  Find the total value of just the numbers in an array, even if some of the items are not numbers.
 //    function valNumInArray (array){
@@ -155,9 +157,11 @@ var jerLib = function() {
 
 
 //  Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] → [{a:1},{a:2},{a:3}].
-        //   function sortArray (array){
-        //      var myArray = array;
-//    }
+    var sortArray = function (array, key) {
+        return (array.sort(function(a,b){
+            return a[key] - b[key];
+        }))};
+
 
 
         return {"isPhoneNumber": isPhoneNumber,
@@ -168,13 +172,12 @@ var jerLib = function() {
             "makeMoney":makeMoney,
             "difInHours":difInHours,
             "strToNum": strToNum,
-            "fuzzyNum":fuzzyNum
+            "fuzzyNum":fuzzyNum,
+            "sortArray":sortArray,
+            "grThan":grThan
+
         }     };
 
+
+
 var newLib = new jerLib();
-console.log(newLib.isPhoneNumber("256-655-0016"));
-console.log(newLib.isEmail("jermcriddle@gmail.com"));
-console.log(newLib.isUrl("http:"));
-console.log(newLib.replaceSep("today-is-the-day","-", "="));
-console.log(newLib.difInHours(new Date("2012,11,09"),new Date("2012,11,11")));
-console.log(newLib.toTitle("today is the day"));
