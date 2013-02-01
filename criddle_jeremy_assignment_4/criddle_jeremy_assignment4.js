@@ -93,8 +93,8 @@ var jerLib = function() {
 //  Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
     var replaceSep = function (string, separator, toSeparator) {
             var arrayOfStrings = string.split(separator);
-            replaced = arrayOfStrings.join(toSeparator)
-            return replaced;
+        return arrayOfStrings.join(toSeparator);
+
         };
 
 
@@ -108,13 +108,11 @@ var jerLib = function() {
 //  Fuzzy-match a number: is the number above or below a number within a certain percent?
         var fuzzyNum = function (number,comparedNumber,percent) {
             var approx = (number/comparedNumber) * 100;
-            var isFuzzyNum;
-            if ((number >= comparedNumber && approx >= percent) || (number < comparedNumber && approx < percent)) {
-                isFuzzyNum = false;
-                return isFuzzyNum;
+            if ((number >= comparedNumber && approx >= percent) ||
+                (number < comparedNumber && approx < percent)) {
+                return false;
             } else {
-                isFuzzyNum = true
-                return isFuzzyNum;
+                return true;
             };
         };
 
@@ -125,7 +123,7 @@ var jerLib = function() {
             var firstDate = date1;
             var secondDate = date2;
             var difference = (firstDate > secondDate) ? firstDate.getTime() - secondDate.getTime() : secondDate.getTime() - firstDate.getTime();
-            return difference / 1000 * 60 * 60  ;
+            return difference / (60 * 60 * 1000);
 
         }
 
@@ -137,10 +135,17 @@ var jerLib = function() {
         }
 
 //  Find the smallest value in an array that is greater than a given number
-//    function grThan (number){
-//        var myNumber = number;
-//        var sortedNum = myNumber.sort(a,b);
-//        return sortedNum;
+        var grThan = function (array,num) {
+            array.sort(function(a,b){return a-b;});
+            if (num >= array[0] && num < array[array.length-1]) {
+                array.push(num);
+                array.sort(function(a,b){return a-b;});
+        var result = array[array.lastIndexOf(num) + 1];
+            return result;
+        } else {
+            return null;
+    };
+};
 //    }
 
 //  Find the total value of just the numbers in an array, even if some of the items are not numbers.
@@ -171,5 +176,5 @@ console.log(newLib.isPhoneNumber("256-655-0016"));
 console.log(newLib.isEmail("jermcriddle@gmail.com"));
 console.log(newLib.isUrl("http:"));
 console.log(newLib.replaceSep("today-is-the-day","-", "="));
-console.log(newLib.difInHours(new Date(2011,11,11),new Date(2012,11,11)));
+console.log(newLib.difInHours(new Date("2012,11,09"),new Date("2012,11,11")));
 console.log(newLib.toTitle("today is the day"));
